@@ -1,5 +1,9 @@
 "use strict";
 
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
@@ -62,4 +66,107 @@ var MinhaLista = new TodoList();
 
 document.getElementById('novoTudo').onclick = function () {
   MinhaLista.add('Novo tudo');
+}; // Constantes
+
+
+var usuario = {
+  nome: 'diego'
 };
+usuario.nome = 'Jilcimar';
+console.log(usuario);
+
+function teste(x) {
+  var y = 2;
+
+  if (x > 5) {
+    console.log(x, y);
+  }
+}
+
+console.log(teste(10)); // Operações em Array
+
+var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+var newArr = arr.map(function (item) {
+  return item * 2;
+});
+console.log(newArr);
+var sum = arr.reduce(function (total, next) {
+  return total + next;
+});
+console.log(sum);
+var filter = arr.filter(function (item) {
+  return item % 2 === 0; //retornando os pares do array
+});
+console.log(filter);
+var find = arr.find(function (item) {
+  return item === 4;
+});
+console.log(find); //Arrow functions
+
+var newTeste = arr.map(function (item) {
+  return item * 2;
+});
+console.log(newTeste);
+
+var testeArrowFunction = function testeArrowFunction() {
+  return {
+    nome: 'Jil'
+  };
+};
+
+console.log(testeArrowFunction); //Valores Padrão
+
+function somaDefault() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
+  return a + b;
+}
+
+console.log(somaDefault(1));
+console.log(somaDefault());
+
+var somaDefaultArrow = function somaDefaultArrow() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
+  return a + b;
+};
+
+console.log(somaDefault(1));
+console.log(somaDefault()); //Desestruturação
+
+var user = {
+  nome: 'jil',
+  idade: 22,
+  endereco: {
+    cidade: 'rio',
+    estado: 'rj'
+  }
+};
+console.log(user);
+var nome = user.nome,
+    idade = user.idade,
+    cidade = user.endereco.cidade;
+console.log(nome);
+console.log(idade);
+console.log(cidade); //Operadores Rest/Spread
+
+var estado = {
+  nomeEstado: 'rn',
+  idadeEstado: 100
+};
+
+var nomeEstado = estado.nomeEstado,
+    resto = _objectWithoutProperties(estado, ["nomeEstado"]);
+
+console.log(nomeEstado);
+console.log(estado); //SPREAD
+
+var ar1 = [1, 2, 3];
+var ar2 = [4, 5, 6];
+var ar3 = [].concat(ar1, ar2);
+console.log(ar3); //Template Literals
+
+var nome1 = 'jil';
+var idade1 = 22; // console.log('Meu nome é ' + nome1 +'e tenho ' + idade1 + ' anos');
+
+console.log("meu nome \xE9 ".concat(nome1, " e tenho ").concat(idade1, " anos."));
