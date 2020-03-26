@@ -138,4 +138,7 @@ const idade1 = 22;
 console.log(`meu nome é ${nome1} e tenho ${idade1} anos.`);
 
 
+import {somafunc} from './funcoes';
+
+console.log(somafunc(2,2));
 
